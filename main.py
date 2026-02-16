@@ -8,27 +8,27 @@ from src.code_sandbox import CodeSandbox
 from langchain_community.llms import Ollama
 
 # # 初始化openAI的API
-# from langchain_openai import ChatOpenAI
-# import getpass
-# import os
+from langchain_openai import ChatOpenAI
+import getpass
+import os
 
-# os.environ["OPENAI_API_KEY"] = getpass.getpass()
+api_key = input("API key")
+os.environ["OPENAI_API_KEY"] = api_key
 
+from fastapi import FastAPI  
+from langserve import add_routes
 
-# from fastapi import FastAPI  
-# from langserve import add_routes
-
-# from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferMemory
 
 def main():
     """
     运行基于 LLM 的多代理框架的主函数。
     """
     # 初始化本地 LLM
-    llm = Ollama(model='llama3.1', base_url='http://localhost:11434')
+    # llm = Ollama(model='llama3.1', base_url='http://localhost:11434')
 
     # 初始化 OpenAI LLM
-    # llm = ChatOpenAI(model_name='gpt-4', temperature=0)
+    llm = ChatOpenAI(model_name='gpt-4', temperature=0)
 
     # 初始化全局内存
     global_memory = GlobalMemory()
