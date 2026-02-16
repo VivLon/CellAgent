@@ -54,7 +54,7 @@ class Planner:
         print(response)
 
         # 尝试提取 JSON 并解析
-        parsed_json = extract_and_parse_json(response)
+        parsed_json = extract_and_parse_json(response.content)
         # 解析 JSON 响应
         if parsed_json:
             steps = parsed_json.get('steps', [])

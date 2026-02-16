@@ -54,7 +54,7 @@ class ToolSelector:
         print(response)
 
         # 解析 JSON 响应
-        parsed_json = extract_and_parse_json(response)
+        parsed_json = extract_and_parse_json(response.content)
 
         print(parsed_json)
 

@@ -58,8 +58,8 @@ class CodeProgrammer:
 
         # 使用 LLM 获取响应
         response = self.llm.invoke(formatted_prompt)
-        code = self.extract_code(response)
-        analysis = self.extract_analysis(response)
+        code = self.extract_code(response.content)
+        analysis = self.extract_analysis(response.content)
         return code, analysis
 
     def optimize_code(self, evaluation_feedback, local_memory):
@@ -90,8 +90,8 @@ class CodeProgrammer:
 
         # 使用 LLM 获取响应
         response = self.llm.invoke(formatted_prompt)
-        code = self.extract_code(response)
-        analysis = self.extract_analysis(response)
+        code = self.extract_code(response.content)
+        analysis = self.extract_analysis(response.content)
         return code, analysis
 
     def extract_code(self, response):

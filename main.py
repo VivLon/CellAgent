@@ -12,7 +12,7 @@ from langchain_openai import ChatOpenAI
 import getpass
 import os
 
-api_key = input("API key")
+api_key = input("API key: \n")
 os.environ["OPENAI_API_KEY"] = api_key
 
 from fastapi import FastAPI  
@@ -34,13 +34,14 @@ def main():
     global_memory = GlobalMemory()
 
     # 初始化代码沙箱
-    code_sandbox = CodeSandbox(notebook_path='/home/share/huadjyin/home/liushiqiang/CellAgent/examples/notebooks/analysis.ipynb')
+    code_sandbox = CodeSandbox(notebook_path="/home/wl545/program/agentbench/cellagent.ipynb")
 
 
     # 在接收用户任务时，要求提供数据文件路径
     print("欢迎使用自动化 scRNA-Seq 数据分析框架。")
     user_task = input("请输入您的 scRNA-seq 分析任务：\n")
-    data_file_path = input("请输入您的 scRNA-seq 数据文件路径：\n")
+    # data_file_path = input("请输入您的 scRNA-seq 数据文件路径：\n")
+    data_file_path = "/gpfs/gibbs/pi/zhao/tl688/scgpt_dataset/Pancrm_raw.h5ad"
 
     # 检查数据文件是否存在
     import os

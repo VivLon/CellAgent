@@ -49,7 +49,7 @@ class Evaluator:
 
         # 使用 LLM 获取响应
         response = self.llm.invoke(formatted_prompt)
-        return response.strip()
+        return response.content.strip()
 
     def is_result_satisfactory(self, evaluation):
         """
